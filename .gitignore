@@ -1,0 +1,18 @@
+# Real secrets -- HMAC keys for shell_launch/pi_intent/ec2_intent, never commit.
+*.key
+
+# GROQ_API_KEY itself is never in a tracked file (groq_client.py reads
+# it from the environment only), but the local systemd EnvironmentFile
+# lives outside this repo entirely at ~/.config/cascade_pll/groq.env --
+# nothing to ignore here for it, listed for reference.
+
+# Cached LLM narrations -- not secret, but not source either, and
+# rebuilds itself from scratch fine (see groq_client.py's cache).
+groq_cache.db
+
+# Live telemetry logs -- large, constantly changing, not source.
+*.log
+
+# Python
+__pycache__/
+*.pyc
